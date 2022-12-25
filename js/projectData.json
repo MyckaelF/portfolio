@@ -1,0 +1,11 @@
+// <div class="box">
+//     <div class="imageBox">
+//         <img src="images/projetoBlogr.webp" alt="illustration project">
+//     </div>
+//     <h3>Projeto Blogr</h3> 
+//     <p>
+//         Esse projeto foi construído com HTML, CSS e Javascript. No que se consiste esse projeto? É uma landing page de uma empresa fictícia a qual promove um editor para gerenciamento de blogs.
+//     </p>   
+//     <button>Mais detalhes</button>   
+//     <a class="linkProject" href="https://blogr-landingpagek.netlify.app" target="_blank">Ver online</a>                   
+// </div>
