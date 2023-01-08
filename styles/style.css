@@ -64,13 +64,15 @@ img {
     gap: 1rem;
 }
 
-.header .navbar .menu li {
+.header .navbar .menu li a {
     padding: 1rem; 
     position: relative;
+    display: block;
+    text-decoration: none;
+    color: white;
 }
 
-.header .navbar .menu li:last-child,
-.home .textContent button,
+.home .textContent a,
 .linkProject {
     background: rgb(0,192,255);
     background: var(--gradient);
@@ -83,7 +85,7 @@ img {
     border: none;
 }
 
-.header .navbar .menu li::after {
+.header .navbar .menu li a::after {
     content: "";
     position: absolute;
     bottom: 0;
@@ -96,29 +98,32 @@ img {
     transition: all 500ms ease;
 }
 
-.header .navbar .menu li:hover::after {
+.header .navbar .menu li a:hover::after {
     width: 100%;
 }
 
-.header .navbar .menu li:hover {
+.header .navbar .menu li:hover > a {
     color: var(--primaryColor);
     text-shadow: 0 0 3px var(--primaryColor);
 }
 
-.header .navbar .menu li:last-child::after {
+.header .navbar .menu li a.linkProject::after {
     width: 0;
 }
 
-.header .navbar .menu li:last-child:hover,
-.home .textContent button:hover,
+.header .navbar .menu li a.linkProject:hover,
+.home .textContent a:hover,
 .linkProject:hover {
     box-shadow: 0 0 15px rgb(0,192,255);
     color: white; 
 }
 
-.home .textContent button {
+.home .textContent a {
+    display: block;
+    text-decoration: none;
     width: 10rem;
     height: 3rem;
+    padding: 0.7rem;
     font-size: 1.1rem;
     font-family: var(--fontOverpass);
 }
@@ -288,7 +293,12 @@ img {
     filter: grayscale(0);
 }
 
-.projects .boxes .box button {
+.projects .boxes .box .containerTexts a:first-of-type {
+    text-align: center;
+    display: block;
+    padding: 0.5rem 0;
+    text-decoration: none;
+    font-size: 0.8rem;
     outline-color: var(--primaryColor);
     height: 2rem;
     margin: 1rem 0;
@@ -300,7 +310,7 @@ img {
     background-clip: padding-box, border-box;
     transition: all 500ms ease;
 }
-.projects .boxes .box button,
+.projects .boxes .box a:first-child,
 .linkProject {
     width: 100%;
 }
@@ -317,7 +327,7 @@ img {
 
 .boxes {
     display: grid;
-    grid-template-columns: auto auto auto auto;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
     grid-template-rows: auto auto;
     gap: 3%;
     align-items: stretch;
@@ -359,6 +369,16 @@ img {
     border: none;
     outline-color: var(--primaryColor);
     color: var(--grayishBlue);
+}
+
+.contact .contactContainer .formContact form input.error,
+.contact .contactContainer .formContact form textarea.error {
+    border: 1px solid rgb(233, 74, 74);
+}
+
+.contact .contactContainer .formContact form input.valid,
+.contact .contactContainer .formContact form textarea.valid {
+    border: 1px solid var(--primaryColor);
 }
 
 .formContact form textarea {
@@ -530,7 +550,7 @@ img {
     margin-top: 2rem;
     display: flex;
     justify-content: center;
-    gap: 2rem;
+    gap: 1.5rem;
     flex-wrap: wrap;
 }
 
@@ -569,3 +589,9 @@ img {
     position: absolute;
     top: 3%;
 }
+
+body.active {
+    height: 100vh;
+    overflow: hidden;
+}
+

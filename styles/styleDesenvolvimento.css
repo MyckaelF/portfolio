@@ -1,0 +1,34 @@
+@import url(./variables.css);
+@import url(/styles/style.css);
+
+body {
+    background-color: var(--VeryDarkBlue);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    font-family: var(--fontOverpass);
+}
+
+.logo {
+    position: absolute;
+    top: 0;
+    left: 5%;
+}
+
+.textContent {
+    text-align: center;
+}
+
+.textContent h1 {
+    background-image: var(--gradient);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: var(--primaryColor);  
+}
+
+.textContent a {
+    width: 50%;
+    margin: 2rem auto 0 auto;
+}
