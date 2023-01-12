@@ -108,11 +108,21 @@ function createBoxContent(box, item) {
 
     let containerTexts = document.createElement('div')
     containerTexts.classList.add('containerTexts')
+   
+    let containerButtons = document.createElement('div')
+    containerButtons.classList.add('containerButtons')
+    
+    let alignTexts = document.createElement('div')
+    alignTexts.classList.add('alignTexts')
 
     let arrElements = ['h3', 'p', 'moreDetails', 'link']
 
-    arrElements.forEach( arrElement => {
-        buildContainer(containerTexts, item, arrElement)
+    arrElements.forEach( (arrElement, index) => {
+        if(index === 0 || index === 1) {
+            buildContainer(containerTexts, item, arrElement, alignTexts)
+        } else {
+            buildContainer(containerTexts, item, arrElement, containerButtons)
+        }
     })
 
     boxAppend(box, imageBox)
@@ -120,25 +130,28 @@ function createBoxContent(box, item) {
 
 }
 
-function buildContainer(container, item, caseItem) {
+function buildContainer(container, item, caseItem, separator) {
 
     switch(caseItem) {
         case 'h3':
             let h3 = document.createElement('h3')
             h3.textContent = item.projectName
-            container.appendChild(h3)
+            separator.appendChild(h3)
+            container.appendChild(separator)
             break
         case 'p': 
             let p = document.createElement('p')
             p.textContent = item.shortDescription
-            container.appendChild(p)
+            separator.appendChild(p)
+            container.appendChild(separator)
             break
         case 'moreDetails':
             let button = document.createElement('a')
             button.setAttribute('data-moreDetails', '')
             button.href = `#projects`
             button.textContent = 'Mais Detalhes'
-            container.appendChild(button)
+            separator.appendChild(button)
+            container.appendChild(separator)
             break
         case 'link':
             let link = document.createElement('a')
@@ -146,7 +159,8 @@ function buildContainer(container, item, caseItem) {
             link.href = item.projectLink
             link.target = '_blank'
             link.textContent = 'Ver online'
-            container.appendChild(link)
+            separator.appendChild(link)
+            container.appendChild(separator)
             break
     }
 }

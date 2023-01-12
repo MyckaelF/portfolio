@@ -45,6 +45,7 @@ img {
 
 .header {
     width: 100%;
+    height: 100px;
     background-color: var(--VeryDarkBlue);
     position: sticky;
     top: 0;
@@ -253,6 +254,9 @@ img {
 }
 
 .projects .boxes .box {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
     background-color: var(--verydark-blackGray);
     border-radius: 8px;
     padding: 1rem;
@@ -331,6 +335,12 @@ img {
     grid-template-rows: auto auto;
     gap: 3%;
     align-items: stretch;
+}
+.box .containerTexts {
+    display: flex;
+    flex-grow: 2;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
 .contact {
@@ -595,3 +605,193 @@ body.active {
     overflow: hidden;
 }
 
+.btnMenuMobile {
+    display: none;
+}
+
+@media (max-width: 900px) {
+
+    .header {
+        display: flex;
+    }
+
+    .header .logo img {
+        width: 70%;
+    }
+
+    .btnMenuMobile {
+        display: flex;
+        padding: 0.5rem 1rem;
+        font-size: 1rem;
+        border: none;
+        background: none;
+        cursor: pointer;
+        gap: 0.5rem;
+    }
+
+    .btnMenuMobile #hamburger {
+        border-top: 2px solid var(--primaryColor);
+        width: 20px;
+    }
+
+    .btnMenuMobile #hamburger::before, .btnMenuMobile #hamburger::after {
+        content: '';
+        display: block;
+        width: 20px;
+        height: 2px;
+        background: var(--primaryColor);
+        margin-top: 5px;
+        transition: 0.5s;
+        position: relative;
+    }
+
+    .navbar.active .btnMenuMobile #hamburger {
+        border-top-color: transparent;
+    }
+    
+    .navbar.active .btnMenuMobile #hamburger::before {
+        transform: rotate(135deg);
+    }
+    
+    .navbar.active .btnMenuMobile #hamburger::after {
+        transform: rotate(-135deg);
+        top: -7px;
+    }
+
+    .header .navbar .menu {
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        top: 100%;
+        left: 50%;
+        transform: translateX(-50%);
+        z-index: 1000000;
+        background-color: var(--VeryDarkBlue);
+        width: 100%;
+        height: 0;
+        justify-content: start;
+        gap: 2rem;
+        visibility: hidden;
+        overflow-y: hidden;
+        transition: all 600ms ease;
+    }
+
+    .header .navbar .menu li:first-child {
+        margin-top: 2rem;
+    }
+
+    .header .navbar .menu li a {
+        font-size: 1.2rem;
+        color: var(--primaryColor);
+    }
+    
+    .header .navbar .menu li a.linkProject {
+        color: var(--white);
+    }
+    
+    .navbar.active .menu {
+        height: 100vh;
+        visibility: visible;
+    }
+
+    .home .container {
+        flex-direction: column;
+    }
+
+    .home .textContent h1 {
+        font-size: 2.2rem;
+    }
+
+    .home .textContent p {
+        font-size: 0.9rem;
+    }
+
+    .home .textContent {
+        width: 100%;
+    }
+
+    .home .images {
+        display: none;
+    }
+
+    .aboutMe .textContent {
+        padding: 0;
+        margin-bottom: 1rem;
+    }
+
+    .skills .icons .skillsIcons {
+        display: grid;
+        grid-template-rows: auto auto;
+        grid-template-columns: 1fr 1fr;
+        gap: 1rem;
+    }
+
+    .skills .icons .skillsIcons li {
+        width: 30%;
+        margin: 0 auto;
+    }
+
+    .skills .icons .skillsIcons li svg {
+        width: 100%;
+    }
+    
+    .projects .title {
+        margin-bottom: 4rem;
+    }
+
+    .projects .boxes,
+    .contact .contactContainer,
+    .footer .container,
+    .aboutMe .container {
+        display: flex;
+        flex-direction: column;
+        gap: 1.3rem;
+        align-items: center;
+    }
+
+    .projectDetails .container {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .projectDetails img {
+        width: 50%;
+    }
+
+    .projectDetails i {
+        font-size: 1.2rem;
+        top: 7.8%;
+    }
+
+    .projectDetails .iframe {
+        display: none;
+    }
+
+    .projectDetails .textContent {
+        width: 100%;
+        margin-top: 12rem;
+    }
+
+    .projectDetails.active {
+        overflow: auto;
+    }
+
+    .contact .contactContainer .formContact,
+    .contact .contactContainer .alternativeContacts,
+    .aboutMe .images, .aboutMe .textContent {
+        width: 100%;
+    }
+
+    .footer .container,
+    .footer .mentions {
+        text-align: center;
+    }
+}
+
+@media(min-width: 550px) and (max-width: 900px) {
+    .projects .boxes {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: auto auto auto auto;
+    }
+}

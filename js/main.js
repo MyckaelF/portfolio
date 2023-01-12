@@ -161,3 +161,18 @@ validateEmail(email)
 validateName(nameProfile)
 createNav(moreDetailsButton)
 createNav(menuNav)
+
+// Mobile Navigation
+
+const hamburgerButton = document.querySelector('[data-btnMenuMobile]')
+const navBar = document.querySelector('[data-navBar]')
+
+hamburgerButton.onclick = () => {
+  navBar.classList.toggle('active')
+}
+
+menuNav.forEach(anchor => {
+  anchor.onclick = () => {
+    navBar.classList.remove('active')
+  }
+})
